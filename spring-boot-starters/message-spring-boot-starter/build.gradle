@@ -1,0 +1,6 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-starters:web-spring-boot-starter')
+    compile project(':spring-boot-message:message-spring-boot-autoconfigure')
+    compile 'org.springframework:spring-jdbc'
+}

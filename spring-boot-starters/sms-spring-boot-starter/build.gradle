@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-sms:sms-spring-boot-autoconfigure')
+    compile 'com.aliyun:aliyun-java-sdk-core'
+}

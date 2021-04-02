@@ -1,0 +1,6 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-aop', optional
+    compile 'org.apache.rocketmq:rocketmq-spring-boot-starter', optional
+    compile 'org.springframework:spring-jdbc', optional
+    compile project(':spring-boot-starters:web-spring-boot-starter'), optional
+}

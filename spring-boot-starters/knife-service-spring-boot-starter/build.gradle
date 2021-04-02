@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-knife:knife-service-spring-boot-autoconfigure')
+    compile 'com.github.xiaoymin:knife4j-micro-spring-boot-starter'
+}

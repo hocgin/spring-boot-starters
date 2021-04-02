@@ -1,0 +1,6 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-starters:validation-spring-boot-starter')
+    compile project(':spring-boot-mybatis-plus:mybatis-plus-spring-boot-autoconfigure')
+    compile 'com.baomidou:mybatis-plus-boot-starter'
+}

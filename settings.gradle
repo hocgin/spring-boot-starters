@@ -1,0 +1,113 @@
+rootProject.name = 'spring-boot-starters-project'
+include "spring-boot-utils"
+
+include "spring-boot-web"
+include ":spring-boot-web:web-core"
+include ":spring-boot-web:web-spring-boot-autoconfigure"
+include ":spring-boot-starters:web-spring-boot-starter"
+
+include "spring-boot-xxl-job"
+include ":spring-boot-xxl-job:xxl-job-spring-boot-autoconfigure"
+include ":spring-boot-starters:xxl-job-spring-boot-starter"
+
+include "spring-boot-cache"
+include ":spring-boot-cache:cache-spring-boot-autoconfigure"
+include ":spring-boot-starters:cache-spring-boot-starter"
+
+include "spring-boot-change-log"
+include ":spring-boot-change-log:change-log-spring-boot-autoconfigure"
+include ":spring-boot-starters:change-log-spring-boot-starter"
+
+include "spring-boot-distributed-lock"
+include ":spring-boot-distributed-lock:distributed-lock-spring-boot-autoconfigure"
+include ":spring-boot-starters:distributed-lock-spring-boot-starter"
+
+include "spring-boot-knife"
+include ":spring-boot-knife:knife-gateway-spring-boot-autoconfigure"
+include ":spring-boot-starters:knife-gateway-spring-boot-starter"
+include ":spring-boot-knife:knife-service-spring-boot-autoconfigure"
+include ":spring-boot-starters:knife-service-spring-boot-starter"
+
+include "spring-boot-logging"
+include ":spring-boot-logging:logging-spring-boot-autoconfigure"
+include ":spring-boot-starters:logging-spring-boot-starter"
+
+include "spring-boot-mail"
+include ":spring-boot-mail:mail-spring-boot-autoconfigure"
+include ":spring-boot-starters:mail-spring-boot-starter"
+
+include "spring-boot-mybatis-plus"
+include ":spring-boot-mybatis-plus:mybatis-plus-spring-boot-autoconfigure"
+include ":spring-boot-starters:mybatis-plus-spring-boot-starter"
+
+include "spring-boot-validation"
+include ":spring-boot-validation:validation-spring-boot-autoconfigure"
+include ":spring-boot-starters:validation-spring-boot-starter"
+
+include "spring-boot-message"
+include ":spring-boot-message:message-spring-boot-autoconfigure"
+include ":spring-boot-starters:message-spring-boot-starter"
+
+include "spring-boot-named"
+include ":spring-boot-named:named-core"
+include ":spring-boot-named:named-core:named-annotation"
+include ":spring-boot-named:named-core:named-interface"
+include ":spring-boot-named:named-spring-boot-autoconfigure"
+include ":spring-boot-starters:named-spring-boot-starter"
+
+include "spring-boot-openfeign"
+include ":spring-boot-openfeign:openfeign-spring-boot-autoconfigure"
+include ":spring-boot-starters:openfeign-spring-boot-starter"
+
+include "spring-boot-oss"
+include ":spring-boot-oss:oss-spring-boot-autoconfigure"
+include ":spring-boot-starters:oss-spring-boot-starter"
+
+include "spring-boot-sms"
+include ":spring-boot-sms:sms-spring-boot-autoconfigure"
+include ":spring-boot-starters:sms-spring-boot-starter"
+
+include "spring-boot-sso"
+include ":spring-boot-sso:sso-client-spring-boot-autoconfigure"
+include ":spring-boot-starters:sso-client-spring-boot-starter"
+
+include "spring-boot-test"
+include ":spring-boot-test:test-spring-boot-autoconfigure"
+include ":spring-boot-starters:test-spring-boot-starter"
+
+include "spring-boot-tpl"
+include ":spring-boot-tpl:tpl-spring-boot-autoconfigure"
+include ":spring-boot-starters:tpl-spring-boot-starter"
+
+include "spring-boot-wx-ma"
+include ":spring-boot-wx-ma:wx-ma-spring-boot-autoconfigure"
+include ":spring-boot-starters:wx-ma-spring-boot-starter"
+
+include "spring-boot-wx-mp"
+include ":spring-boot-wx-mp:wx-mp-spring-boot-autoconfigure"
+include ":spring-boot-starters:wx-mp-spring-boot-starter"
+
+include "spring-boot-xxl-job"
+include ":spring-boot-xxl-job:xxl-job-spring-boot-autoconfigure"
+include ":spring-boot-starters:xxl-job-spring-boot-starter"
+
+
+/**
+ * Starters
+ */
+//include "spring-boot-starters"
+//project(":spring-boot-starters").projectDir.eachDir { dir ->
+//    if (dir.name.endsWith('-spring-boot-starter')) {
+//        include "spring-boot-starters:${dir.name}"
+//    }
+//}
+
+/**
+ * Samples
+ */
+include "spring-boot-samples"
+project(":spring-boot-samples").projectDir.eachDir { dir ->
+    if (dir.name.endsWith('-sample')) {
+        include "spring-boot-samples:${dir.name}"
+    }
+}

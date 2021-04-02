@@ -1,0 +1,4 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+    compile 'javax.mail:mail', optional
+}

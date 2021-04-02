@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-mail:mail-spring-boot-autoconfigure')
+    compile 'javax.mail:mail'
+}

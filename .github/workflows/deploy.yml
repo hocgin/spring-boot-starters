@@ -17,44 +17,16 @@ jobs:
           server-id: github
           java-version: 1.8
 
-      # 缓存 Maven 仓库
-      - name: Cache local Maven repository
+      # Gradle 缓存配置
+      - name: Cache Gradle packages
         uses: actions/cache@v2
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      - name: Deploy to Github Package Registry
-        run: |
-          mkdir -p ~/.m2
-          echo "<settings><servers><server><id>gh</id><username>$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')</username><password>\${env.GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          REPO="gh::default::https://maven.pkg.github.com/${GITHUB_REPOSITORY}"
-          mvn deploy -DaltDeploymentRepository="${REPO}" -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy to Sonatype Package Registry
-        run: |
-          mkdir -p ~/.m2
-          echo "<settings><servers><server><id>\${env.ID}</id><username>\${env.USERNAME}</username><password>\${env.PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
-          REPO="\${env.ID}::default::\${env.URL}"
-          mvn deploy -DaltDeploymentRepository="${REPO}" -DskipTests
-        env:
-          ID: sonatype-snapshots
-          URL: https://oss.sonatype.org/content/repositories/snapshots
-          USERNAME: hocgin
-          PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
 
       - name: Deploy to Alibaba Package Registry
-        run: |
-          mkdir -p ~/.m2
-          echo "<settings><servers><server><id>\${env.ID}</id><username>\${env.USERNAME}</username><password>\${env.PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
-          REPO="\${env.ID}::default::\${env.URL}"
-          mvn deploy -DaltDeploymentRepository="${REPO}" -DskipTests
+        run: gradle publish
         env:
-          ID: rdc-releases
-          URL: https://packages.aliyun.com/maven/repository/2026582-release-AuUWIo
-          USERNAME: 5f3fc340209ad8bf48f5dd13
-          PASSWORD: ${{ secrets.ALIYUN_PASSWORD }}
+          ALIBABA_MAVEN_USERNAME: 5f3fc340209ad8bf48f5dd13
+          ALIBABA_MAVEN_PASSWORD: ${{ secrets.ALIYUN_PASSWORD }}

@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':spring-boot-named:named-core:named-annotation')
+    compile project(':spring-boot-named:named-core:named-interface')
+    compile 'org.springframework.boot:spring-boot-starter-aop', optional
+    compile 'com.baomidou:mybatis-plus-boot-starter', optional
+}

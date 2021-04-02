@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile 'com.xuxueli:xxl-job-core'
+    compile project(':spring-boot-xxl-job:xxl-job-spring-boot-autoconfigure')
+}

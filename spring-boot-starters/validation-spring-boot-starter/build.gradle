@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-validation:validation-spring-boot-autoconfigure')
+    compile 'org.springframework.boot:spring-boot-starter-validation'
+}

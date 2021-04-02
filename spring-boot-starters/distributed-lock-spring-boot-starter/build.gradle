@@ -1,0 +1,7 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-distributed-lock:distributed-lock-spring-boot-autoconfigure')
+    compile 'org.redisson:redisson-spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+}

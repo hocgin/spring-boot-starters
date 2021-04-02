@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-wx-ma:wx-ma-spring-boot-autoconfigure')
+    compile 'com.github.binarywang:weixin-java-miniapp'
+}

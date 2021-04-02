@@ -1,0 +1,7 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    testCompile project(':spring-boot-starters:test-spring-boot-starter')
+    compile project(':spring-boot-starters:logging-spring-boot-starter')
+    compile project(':spring-boot-starters:xxl-job-spring-boot-starter')
+}

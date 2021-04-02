@@ -1,0 +1,10 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile project(':spring-boot-starters:web-spring-boot-starter')
+    compile project(':spring-boot-starters:logging-spring-boot-starter')
+    compile project(':spring-boot-starters:sms-spring-boot-starter')
+    testCompile project(':spring-boot-starters:test-spring-boot-starter')
+}
+

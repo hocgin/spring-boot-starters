@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-openfeign:openfeign-spring-boot-autoconfigure')
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
+}

@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-cache', optional
+    compile 'org.springframework.boot:spring-boot-starter-data-redis', optional
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+}

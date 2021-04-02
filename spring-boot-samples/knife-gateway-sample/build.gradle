@@ -1,0 +1,12 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-actuator'
+    compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.cloud:spring-cloud-starter-gateway'
+    compile project(':spring-boot-starters:web-spring-boot-starter')
+    compile project(':spring-boot-starters:logging-spring-boot-starter')
+    compile project(':spring-boot-starters:knife-gateway-spring-boot-starter')
+    testCompile project(':spring-boot-starters:test-spring-boot-starter')
+}
+

@@ -1,0 +1,14 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.alibaba:druid-spring-boot-starter'
+    compile 'p6spy:p6spy'
+    runtime 'mysql:mysql-connector-java'
+    compile project(':spring-boot-starters:web-spring-boot-starter')
+    compile project(':spring-boot-starters:logging-spring-boot-starter')
+    compile project(':spring-boot-starters:mybatis-plus-spring-boot-starter')
+    testCompile project(':spring-boot-starters:test-spring-boot-starter')
+}
+
+

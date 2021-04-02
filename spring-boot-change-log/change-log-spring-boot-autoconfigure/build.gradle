@@ -1,0 +1,7 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-log4j2', optional
+    compile 'org.springframework.boot:spring-boot-starter-aop', optional
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+    compile 'io.swagger:swagger-annotations', optional
+    compile 'org.springframework:spring-jdbc', optional
+}

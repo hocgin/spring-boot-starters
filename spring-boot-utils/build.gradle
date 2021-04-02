@@ -1,0 +1,4 @@
+dependencies {
+    compile 'cn.hutool:hutool-all'
+    compile 'com.google.guava:guava'
+}

@@ -1,0 +1,6 @@
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-oss:oss-spring-boot-autoconfigure')
+    compile 'com.aliyun.oss:aliyun-sdk-oss'
+    compile 'com.qiniu:qiniu-java-sdk'
+}

@@ -1,0 +1,4 @@
+dependencies {
+    compile 'com.aliyun:aliyun-java-sdk-core', optional
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+}

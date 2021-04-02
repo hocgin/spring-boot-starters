@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':spring-boot-web:web-core')
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+}

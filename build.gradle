@@ -1,0 +1,145 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4'
+    id "nebula.optional-base" version "6.0.0"
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+group "in.hocg.boot"
+version '1.1.0-SNAPSHOT'
+
+ext {
+    moduleProjects = subprojects
+    javaProjects = subprojects
+    autoconfigureProjects = subprojects.findAll { it.name.endsWith("-spring-boot-autoconfigure") }
+    starterProjects = subprojects.findAll { it.name.endsWith("-spring-boot-starter") }
+    sampleProjects = subprojects.findAll { it.name.endsWith("-spring-boot-sample") }
+}
+
+configure(allprojects) { item ->
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'nebula.optional-base'
+
+    ext {
+        springCloudVersion = 'Hoxton.SR4'
+        springBootVersion = '2.2.6.RELEASE'
+        springCloudAlibabaVersion = '2.2.1.RELEASE'
+        weixinJavaVersion = '4.0.0'
+        lombokVersion = '1.18.12'
+        mybatisPlusVersion = '3.3.0'
+        guavaVersion = '28.1-jre'
+        hutoolAllVersion = '5.3.10'
+        qiniuJavaSdkVersion = '7.2.29'
+        aliyunOssVersion = '2.8.3'
+        swagger2Version = '1.5.20'
+        knife4jVersion = '2.0.4'
+        redissonVersion = '3.13.3'
+        druidVersion = '1.2.5'
+        p6spyVersion = '3.8.7'
+        rocketmqSpringBootStarterVersion = '2.1.0'
+        aliyunLogLog4j2AppenderVersion = '0.1.11'
+        aliyunJavaSdkCoreVersion = '4.4.6'
+        mailVersion = '1.4.7'
+        xxlJobVersion = '2.2.0'
+        jjwtVersion = '0.9.1'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+        dependencies {
+            dependency "p6spy:p6spy:${p6spyVersion}"
+            dependency "com.xuxueli:xxl-job-core:${xxlJobVersion}"
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "com.github.binarywang:weixin-java-mp:${weixinJavaVersion}"
+            dependency "com.github.binarywang:weixin-java-miniapp:${weixinJavaVersion}"
+            dependency "org.apache.rocketmq:rocketmq-spring-boot-starter:${rocketmqSpringBootStarterVersion}"
+            dependency "io.jsonwebtoken:jjwt:${jjwtVersion}"
+            dependency "io.swagger:swagger-annotations:${swagger2Version}"
+            dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+            dependency "cn.hutool:hutool-all:${hutoolAllVersion}"
+            dependency "com.google.guava:guava:${guavaVersion}"
+            dependency "javax.mail:mail:${mailVersion}"
+            dependency "com.qiniu:qiniu-java-sdk:${qiniuJavaSdkVersion}"
+            dependency "com.aliyun:aliyun-java-sdk-core:${aliyunJavaSdkCoreVersion}"
+            dependency "com.aliyun.oss:aliyun-sdk-oss:${aliyunOssVersion}"
+            dependency "com.github.xiaoymin:knife4j-micro-spring-boot-starter:${knife4jVersion}"
+            dependency "com.github.xiaoymin:knife4j-spring-boot-starter:${knife4jVersion}"
+            dependency "org.redisson:redisson-spring-boot-starter:${redissonVersion}"
+            dependency "com.alibaba:druid-spring-boot-starter:${druidVersion}"
+            dependency "com.aliyun.openservices:aliyun-log-log4j2-appender:${aliyunLogLog4j2AppenderVersion}"
+            dependency("org.springframework.boot:spring-boot-starter:${springBootVersion}") {
+                exclude 'org.springframework.boot:spring-boot-starter-logging'
+            }
+        }
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+}
+
+configure([rootProject] + javaProjects) { item ->
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    test {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        compile 'org.slf4j:slf4j-api', optional
+        compile 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+}
+
+configure(autoconfigureProjects) { item ->
+    dependencies {
+        compile project(':spring-boot-utils')
+        compile 'org.springframework.boot:spring-boot-autoconfigure'
+        compile 'org.springframework.boot:spring-boot-starter-web', optional
+        compile 'org.springframework.boot:spring-boot-configuration-processor', optional
+    }
+}
+
+configure(starterProjects) { item ->
+    apply plugin: 'com.github.johnrengelman.shadow'
+}
+
+configure(sampleProjects) { item ->
+//    apply plugin: 'org.springframework.boot'
+}
+
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId = 'in.hocg.boot'
+//            version = '1.1'
+//
+//            pom {
+//                developers {
+//                    developer {
+//                        id = 'hocgin'
+//                        name = 'hocgin'
+//                        email = 'hocgin@gmail.com'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            name = 'AlibabaRepositorie'
+//            url = 'https://packages.aliyun.com/maven/repository/2026582-release-AuUWIo'
+//            credentials {
+//                username = System.getenv("ALIBABA_MAVEN_USERNAME")
+//                password = System.getenv("ALIBABA_MAVEN_PASSWORD")
+//            }
+//        }
+//    }
+//}

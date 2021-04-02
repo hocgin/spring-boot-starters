@@ -1,0 +1,5 @@
+dependencies {
+    compile 'com.aliyun.oss:aliyun-sdk-oss', optional
+    compile 'com.qiniu:qiniu-java-sdk', optional
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+}

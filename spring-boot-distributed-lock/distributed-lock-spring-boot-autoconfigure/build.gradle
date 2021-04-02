@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.redisson:redisson-spring-boot-starter', optional
+    compile 'org.springframework.boot:spring-boot-starter-data-redis', optional
+    compile 'org.springframework.boot:spring-boot-starter-aop', optional
+}

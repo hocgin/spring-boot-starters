@@ -1,0 +1,5 @@
+dependencies {
+    compile 'io.swagger:swagger-annotations', optional
+    compile 'org.springframework.boot:spring-boot-starter', optional
+    compile project(':spring-boot-utils')
+}

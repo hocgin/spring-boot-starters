@@ -1,0 +1,7 @@
+dependencies {
+    compile project(':spring-boot-web:web-core'), optional
+    compile 'org.springframework.boot:spring-boot-starter-oauth2-client', optional
+    compile 'org.springframework.boot:spring-boot-starter-web', optional
+    compile 'org.springframework.boot:spring-boot-starter-webflux', optional
+    compile 'org.springframework.cloud:spring-cloud-starter-security', optional
+}
